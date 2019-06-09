@@ -1,0 +1,11 @@
+( fun fatorial ( int numero ) : int
+    
+    ( se ( < numero 1 )
+        ( ret 1 )
+        ( ret ( fatorial ( - numero 1 ) ) )
+    )
+)
+
+( texto resultado )
+( = resultado ( . " Fatorial de 5 = " ( fatorial 5 ) ) )
+( mostra resultado )

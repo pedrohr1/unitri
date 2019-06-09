@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$USER_HOME$/eclipse-workspace/Analisador/bin" />
+    <exclude-output />
+    <content url="file://$USER_HOME$/eclipse-workspace/Analisador">
+      <sourceFolder url="file://$USER_HOME$/eclipse-workspace/Analisador/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="JavaSE-1.8" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
