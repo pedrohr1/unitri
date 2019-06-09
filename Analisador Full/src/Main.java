@@ -5,7 +5,8 @@ public class Main {
 
     public static void main(String[] args){
 
-        String caminhodoarquivo = "C:\\Users\\peedr\\Documents\\UNTIRI\\Compiladores\\Analisador Full\\Arquivos\\fatorial.slp";
+        //Editar caminho do arquivo
+        String caminhodoarquivo = "\\Analisador Full\\Arquivos\\fatorial.slp";
 
         AnalisadorLexico analisadorLexico = new AnalisadorLexico();
         analisadorLexico.analisar(caminhodoarquivo);
