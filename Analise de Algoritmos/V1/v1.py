@@ -160,5 +160,5 @@ if __name__ == '__main__':
         print('Tempo insertion: %f\nTempo merge: %f\nTempo radix: %f' % (tempo_insertion, tempo_merge, tempo_radix))
         sorts = ['Insertion', 'Merge', 'Radix']
         tempos = [tempo_insertion, tempo_merge, tempo_radix]
-        plt.bar(sorts, tempo)
+        plt.bar(sorts, tempos)
         plt.show()
