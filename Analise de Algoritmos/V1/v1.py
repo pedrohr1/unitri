@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 
+import matplotlib.pyplot as plt
 import random
 from time import sleep, time
         
@@ -156,4 +157,8 @@ if __name__ == '__main__':
     if mostrar_tempo == 's':
         tempo_radix = time() - inicio
         sleep(5)
-        print('Tempo insertion: {}\nTempo merge: {}\nTempo radix: {}'.format(tempo_insertion, tempo_merge, tempo_radix))
+        print('Tempo insertion: %f\nTempo merge: %f\nTempo radix: %f' % (tempo_insertion, tempo_merge, tempo_radix))
+        sorts = ['Insertion', 'Merge', 'Radix']
+        tempos = [tempo_insertion, tempo_merge, tempo_radix]
+        plt.bar(sorts, tempo)
+        plt.show()
