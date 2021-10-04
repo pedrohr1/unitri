@@ -1,19 +1,15 @@
 #-*- coding: utf-8 -*-
 
 import random
-from time import time
+from time import sleep, time
         
 def merge(nums):
     if len(nums) > 1:
         esquerda = nums[:len(nums)//2]
         direita = nums[len(nums)//2:]
-        i = 0
-        j = 0
-        k = 0
-
+        i, j, k = 0, 0, 0
         merge(esquerda)
         merge(direita)
-
         while i < len(esquerda) and j < len(direita):
             if esquerda[i] < direita[j]:
                 nums[k]=esquerda[i]
@@ -26,14 +22,12 @@ def merge(nums):
                 if mostrar_vetor == 's':
                     print(nums)
             k+=1
-
         while i < len(esquerda):
             nums[k]=esquerda[i]
             if mostrar_vetor == 's':
                 print(nums)
             i+=1
             k+=1
-
         while j < len(direita):
             nums[k]=direita[j]
             if mostrar_vetor == 's':
@@ -46,8 +40,7 @@ def insertion(nums):
     for i in range(1, len(nums)):
         chave = nums[i]
         j = i - 1
-        
-        while j >= 0 and chave > nums[j]:
+        while j >= 0 and chave < nums[j]:
             nums[j + 1] = nums[j]
             if mostrar_vetor == 's':
                 print(nums)
@@ -101,7 +94,6 @@ def radix(nums):
 
 if __name__ == '__main__':
     array1 = []
-    sorts = ['merge', 'insertion']
     start = int(input('Qual a quantida de valores no primeiro vetor?\n'))
     step = int(input('Qual a razão de crescimento?\n'))
     stop = int(input('Qual a quantidade de valores no último vetor?\n'))
@@ -110,11 +102,46 @@ if __name__ == '__main__':
     array1 = random.sample(range(start), start)
     qtd_vetores = 0
 
-    sort = 0
     if mostrar_tempo == 's':    
         inicio = time() 
 
     print('Vetor inicial ordenado: {}'.format(insertion(array1)))
+    
+    while qtd_vetores < 9:
+        step += start
+        array = random.sample(range(step), step)
+        print('Vetor {} ordenado: {}'.format(qtd_vetores + 1, insertion(array)))
+        array = []
+        qtd_vetores += 1
+    else:
+        array = random.sample(range(step), stop)
+        print('Vetor final ordenado: {}'.format(insertion(array)))
+
+    qtd_vetores = 0
+
+    if mostrar_tempo == 's':
+        tempo_insertion = time() - inicio
+        inicio = time() 
+
+    print('Vetor inicial ordenado: {}'.format(merge(array1)))
+    
+    while qtd_vetores < 9:
+        step += start
+        array = random.sample(range(step), step)
+        print('Vetor {} ordenado: {}'.format(qtd_vetores + 1, merge(array)))
+        array = []
+        qtd_vetores += 1
+    else:
+        array = random.sample(range(step), stop)
+        print('Vetor final ordenado: {}'.format(merge(array)))
+
+    qtd_vetores = 0
+
+    if mostrar_tempo == 's':
+        tempo_merge = time() - inicio
+        inicio = time() 
+
+    print('Vetor inicial ordenado: {}'.format(radix(array1)))
     
     while qtd_vetores < 9:
         step += start
@@ -127,4 +154,6 @@ if __name__ == '__main__':
         print('Vetor final ordenado: {}'.format(radix(array)))
 
     if mostrar_tempo == 's':
-        print('Tempo de execução no {} sort: {}'.format(sorts[1], time() - inicio))
+        tempo_radix = time() - inicio
+        sleep(5)
+        print('Tempo insertion: {}\nTempo merge: {}\nTempo radix: {}'.format(tempo_insertion, tempo_merge, tempo_radix))
